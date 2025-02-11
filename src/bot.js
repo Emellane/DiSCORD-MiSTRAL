@@ -4,6 +4,7 @@ import { handleCommand } from './commands.js';
 import { setupCommands } from './deploy-commands.js';
 import { logger } from './utils/logger.js';
 import { validateEnvironment } from './utils/validateEnv.js';
+const moment = require('moment-timezone');
 
 // Charger les variables d'environnement
 dotenv.config();
@@ -20,6 +21,31 @@ const client = new Client({
   ],
 });
 
+// Liste des statuts à faire tourner pour le bot Mistral AI
+const statuses = [
+  { name: "discuter avec Mistral 🎙️", type: ActivityType.Playing },
+  { name: "résoudre vos requêtes IA 🤖", type: ActivityType.Playing },
+  { name: "analyser des données 🤓", type: ActivityType.Listening },
+  { name: "apprendre de nouvelles choses 📚", type: ActivityType.Listening },
+  { name: "répondre à vos questions 🤔", type: ActivityType.Listening },
+  { name: "explorer le monde IA 🌍", type: ActivityType.Playing },
+  { name: "évoluer avec vous 🤖✨", type: ActivityType.Playing },
+  { name: "analyser des tendances IA 📊", type: ActivityType.Listening }
+];
+
+// Fonction pour choisir un statut aléatoire
+function updateStatus() {
+  const randomIndex = Math.floor(Math.random() * statuses.length); // Choisit un index aléatoire
+  const status = statuses[randomIndex];
+
+  client.user.setPresence({
+    activities: [status],
+    status: "online",
+  });
+
+  console.log(`✅ Statut mis à jour : "Mistral IA ${status.name}"`);
+}
+
 // Événement déclenché quand le bot est prêt
 client.once(Events.ClientReady, async (c) => {
   logger.info(`Bot prêt ! Connecté en tant que ${c.user.tag}`);
@@ -30,11 +56,11 @@ client.once(Events.ClientReady, async (c) => {
     // Ne pas quitter le processus, le bot peut fonctionner même si les commandes ne sont pas déployées
   }
 
-  // Définir le statut du bot avec une activité en rapport avec Mistral AI
-  client.user.setPresence({
-    activities: [{ name: "discuter avec Mistral", type: ActivityType.Playing }],
-    status: "online",
-  });
+  // Définir un premier statut immédiatement
+  updateStatus();
+
+  // Changer le statut toutes les 30 secondes pour un statut aléatoire
+  setInterval(updateStatus, 30000); // Mise à jour toutes les 30 secondes
 });
 
 // Gestion des commandes slash
