@@ -4,7 +4,7 @@ import { handleCommand } from './commands.js';
 import { setupCommands } from './deploy-commands.js';
 import { logger } from './utils/logger.js';
 import { validateEnvironment } from './utils/validateEnv.js';
-const moment = require('moment-timezone');
+import moment from 'moment-timezone';
 
 // Charger les variables d'environnement
 dotenv.config();
