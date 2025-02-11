@@ -8,8 +8,10 @@
     "dev": "node --watch src/bot.js"
   },
   "dependencies": {
-    "discord.js": "^14.14.1",
+    "@discordjs/rest": "^2.4.2",
+    "discord.js": "^14.17.3",
     "dotenv": "^16.4.5",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "undici": "^7.3.0"
   }
 }
