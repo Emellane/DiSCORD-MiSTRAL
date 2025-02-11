@@ -23,14 +23,26 @@ const client = new Client({
 
 // Liste des statuts à faire tourner pour le bot Mistral AI
 const statuses = [
-  { name: "discuter avec Mistral 🎙️", type: ActivityType.Playing },
-  { name: "résoudre vos requêtes IA 🤖", type: ActivityType.Playing },
-  { name: "analyser des données 🤓", type: ActivityType.Listening },
-  { name: "apprendre de nouvelles choses 📚", type: ActivityType.Listening },
-  { name: "répondre à vos questions 🤔", type: ActivityType.Listening },
-  { name: "explorer le monde IA 🌍", type: ActivityType.Playing },
-  { name: "évoluer avec vous 🤖✨", type: ActivityType.Playing },
-  { name: "analyser des tendances IA 📊", type: ActivityType.Listening }
+  { name: "discuter avec Mistral 🎙️", type: ActivityType.Playing },  // Statut "Discuter avec Mistral"
+  { name: "résoudre vos requêtes IA 🤖", type: ActivityType.Playing },  // Statut "Résoudre vos requêtes IA"
+  { name: "analyser des données 🤓", type: ActivityType.Listening },  // Statut "Analyser des données"
+  { name: "apprendre de nouvelles choses 📚", type: ActivityType.Listening },  // Statut "Apprendre de nouvelles choses"
+  { name: "répondre à vos questions 🤔", type: ActivityType.Listening },  // Statut "Répondre à vos questions"
+  { name: "explorer le monde IA 🌍", type: ActivityType.Playing },  // Statut "Explorer le monde IA"
+  { name: "évoluer avec vous 🤖✨", type: ActivityType.Playing },  // Statut "Évoluer avec vous"
+  { name: "analyser des tendances IA 📊", type: ActivityType.Listening },  // Statut "Analyser des tendances IA"
+
+  // Ajout de nouveaux statuts avec différents types d'activités
+  { name: "rechercher des solutions IA 🔍", type: ActivityType.Listening },  // Statut "Rechercher des solutions IA"
+  { name: "tester des algorithmes 🤖", type: ActivityType.Playing },  // Statut "Tester des algorithmes"
+  { name: "partager des connaissances IA 💡", type: ActivityType.Listening },  // Statut "Partager des connaissances IA"
+  { name: "aider à l'optimisation des données 🧠", type: ActivityType.Playing },  // Statut "Aider à l'optimisation des données"
+  { name: "réfléchir à de nouvelles idées 🤔", type: ActivityType.Listening },  // Statut "Réfléchir à de nouvelles idées"
+  { name: "analyser vos demandes IA 🧑‍💻", type: ActivityType.Listening },  // Statut "Analyser vos demandes IA"
+  { name: "écrire des réponses intelligentes 📝", type: ActivityType.Playing },  // Statut "Écrire des réponses intelligentes"
+  { name: "réaliser des études de marché IA 📊", type: ActivityType.Listening },  // Statut "Réaliser des études de marché IA"
+  { name: "innover avec des algorithmes IA 💡", type: ActivityType.Playing },  // Statut "Innover avec des algorithmes IA"
+  { name: "prévoir des tendances IA 🔮", type: ActivityType.Listening },  // Statut "Prévoir des tendances IA"
 ];
 
 // Fonction pour choisir un statut aléatoire
