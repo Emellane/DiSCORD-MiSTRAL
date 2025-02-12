@@ -93,6 +93,21 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
+// Événement pour gérer la fermeture propre du bot
+process.on('SIGINT', async () => {
+    console.log('Déconnexion du bot...');
+    await client.destroy();  // Déconnecter le bot proprement
+    console.log('Bot déconnecté avec succès.');
+    process.exit(0);  // Ferme le processus Node.js
+});
+
+process.on('SIGTERM', async () => {
+    console.log('Déconnexion du bot...');
+    await client.destroy();  // Déconnecter le bot proprement
+    console.log('Bot déconnecté avec succès.');
+    process.exit(0);  // Ferme le processus Node.js
+});
+
 // Connexion du bot avec le token
 client.login(process.env.DISCORD_TOKEN).catch((error) => {
   logger.error('Erreur de connexion au bot Discord:', error);
