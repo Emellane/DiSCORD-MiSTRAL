@@ -13,6 +13,6 @@
     "dotenv": "^16.4.5",
     "moment-timezone": "^0.5.47",
     "node-fetch": "^3.3.2",
-    "undici": "^7.3.0"
+    "undici": "^7.5.0"
   }
 }
